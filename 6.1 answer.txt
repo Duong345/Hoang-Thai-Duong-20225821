@@ -1,0 +1,42 @@
+- khi chúng ta chọn cancel thì nó sẽ không save and launch
+- Để tùy chỉnh các tùy chọn cho người dùng trong Java, ta có thể sử dụng lớp JOptionPane thuộc thư viện javax.swing. Lớp này cung cấp các phương thức cho các hộp thoại tùy chỉnh và hỗ trợ nhiều tùy chọn cho người dùng.
+Dưới đây là ví dụ minh họa về cách tùy chỉnh các tùy chọn thành "Yes" và "No", hoặc "I do" và "I don’t".
+import javax.swing.JOptionPane;
+
+public class CustomOptionPane {
+    public static void main(String[] args) {
+        // Tùy chọn 1: "Yes" và "No"
+        Object[] options1 = {"Yes", "No"};
+        int choice1 = JOptionPane.showOptionDialog(null,
+                "Do you want to continue?",
+                "Select an option",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options1,
+                options1[0]);
+
+        if (choice1 == JOptionPane.YES_OPTION) {
+            System.out.println("You chose Yes.");
+        } else if (choice1 == JOptionPane.NO_OPTION) {
+            System.out.println("You chose No.");
+        }
+
+        // Tùy chọn 2: "I do" và "I don’t"
+        Object[] options2 = {"I do", "I don’t"};
+        int choice2 = JOptionPane.showOptionDialog(null,
+                "Do you agree?",
+                "Select an option",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options2,
+                options2[0]);
+
+        if (choice2 == JOptionPane.YES_OPTION) {
+            System.out.println("You chose 'I do'.");
+        } else if (choice2 == JOptionPane.NO_OPTION) {
+            System.out.println("You chose 'I don’t'.");
+        }
+    }
+}
